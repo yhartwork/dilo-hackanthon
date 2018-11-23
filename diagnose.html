@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Diagnose</title>
+
+    <!-- Javascript Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="diagnose">
+        <div id="indicator"></div>
+        <div id="mainframe">
+            <div v-if="activeStep == 0" id="page-1" class="page">
+                <h1>Welcome</h1>
+            </div>
+            <div v-else-if="activeStep == 1" id="page-1" class="page">
+                <h1>Page 1</h1>
+            </div>
+            <div v-else-if="activeStep == 2" id="page-2" class="page">
+                <h1>Page 2</h1>
+            </div>
+            <div v-else-if="activeStep == 3" id="page-3" class="page">
+                <h1>Page 3</h1>
+            </div>
+            <div v-else id="page-3" class="page">
+                <h1>Diagnosing..</h1>
+            </div>
+        </div>
+        <div id="navigator">
+            <button @click="activeStep--">Previous</button>
+            <button @click="activeStep++">Next</button>
+        </div>
+    </div>
+    <script>
+        var diagnoseVM;
+
+        diagnoseVM = new Vue({
+            el: '#diagnose',
+            data: {
+                activeStep: 0,
+                answer: {
+                    age: null,
+                    gender: null,
+                    symptom: [],
+                    photo: {
+                        tongue: {}
+                    }
+                },
+                result: {}
+            }
+        });
+    </script>
+</body>
+
+</html>

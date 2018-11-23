@@ -18,16 +18,47 @@
         <div id="indicator"></div>
         <div id="mainframe">
             <div v-if="activeStep == 0" id="page-1" class="page">
-                <h1>Welcome</h1>
+                <h1>Cek Kesehatan</h1>
+                <p>Cek kesehatanmu secara langsung dibantu oleh teknologi kami.</p>
             </div>
             <div v-else-if="activeStep == 1" id="page-1" class="page">
-                <h1>Page 1</h1>
+                <section>
+                    <h1>Berapa Umur Anda?</h1>
+                    <div>
+                        <input type="number" name="age" v-model="answer.age">
+                    </div>
+                </section>
+                <section>
+                    <h1>Jenis Kelamin</h1>
+                    <div>
+                        <div class="form-group">
+                            <label for="i-1">Laki-laki</label>
+                            <input type="radio" name="gender" v-model="answer.gender" id="i-1" value="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="i-2">Perempuan</label>
+                            <input type="radio" name="gender" v-model="answer.gender" id="i-2" value="2">
+                        </div>
+                    </div>
+                </section>
             </div>
             <div v-else-if="activeStep == 2" id="page-2" class="page">
-                <h1>Page 2</h1>
+                <h1>Apa yang anda rasakan sekarang?</h1>
+                <div class="checklist">
+                    <label class="item" v-for="item in question.symptoms">
+                        <b>{{ item }}</b>
+                        <input type="checkbox" name="symptoms" v-model="answer.symptoms" v-bind:value="item">
+                    </label>
+                </div>
             </div>
             <div v-else-if="activeStep == 3" id="page-3" class="page">
-                <h1>Page 3</h1>
+                <h1>Unggah foto lidah anda.</h1>
+                <div>
+                    <div class="uploader">
+                        <b>+ Upload</b>
+                        <input type="file" name="photo" v-on:change="fileSelected">
+                    </div>
+                </div>
             </div>
             <div v-else id="page-3" class="page">
                 <h1>Diagnosing..</h1>
@@ -39,21 +70,39 @@
         </div>
     </div>
     <script>
-        var diagnoseVM;
-
-        diagnoseVM = new Vue({
+        var diagnoseVM = new Vue({
             el: '#diagnose',
             data: {
                 activeStep: 0,
+                question: {
+                    symptoms: [
+                        'Sakit Kepala',
+                        'Mual',
+                        'Sakit Perut',
+                        'Sesak Nafas',
+                        'Demam',
+                        'Badan Lemas'
+                    ]
+                },
                 answer: {
                     age: null,
                     gender: null,
-                    symptom: [],
+                    symptoms: [],
                     photo: {
                         tongue: {}
                     }
                 },
                 result: {}
+            },
+            methods: {
+                fileSelected: function (e) {
+                    var files = e.target.files || e.dataTransfer.files;
+                    if (!files.length)
+                        return;
+                    
+                    // Add the file
+                    this.answer.photo.tongue = files[0];
+                },
             }
         });
     </script>

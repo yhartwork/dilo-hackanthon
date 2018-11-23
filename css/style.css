@@ -27,7 +27,7 @@
         padding: 10px 25px;
         cursor: pointer; }
 
-#content {
+#aksi {
   background-color: #FAFAFA;
   max-width: 375px;
   margin: auto;
@@ -35,14 +35,42 @@
   display: flex;
   justify-content: center;
   flex-direction: row; }
-  #content .kotak {
+  #aksi .kotak {
     width: 300px;
     background-color: #ffffff;
     margin-top: -50px;
     padding: 20px;
     position: absolute; }
-    #content .kotak .tombol {
+    #aksi .kotak .tombol {
       text-align: center;
       margin-top: 20px; }
+
+body {
+  background: #FAFAFA; }
+
+section.header {
+  background: #538DF0; }
+  section.header nav {
+    margin: auto;
+    max-width: 375px; }
+    section.header nav a {
+      color: #ffffff; }
+
+section.content {
+  background: #ffffff;
+  margin: auto;
+  max-width: 375px;
+  height: 700px;
+  padding: 10px; }
+  section.content a {
+    color: #538DF0;
+    text-decoration: none; }
+  section.content #cek_kesehatan, section.content #cari_dokter, section.content #cek_jadwal {
+    margin: 5px 0;
+    cursor: pointer;
+    background: #ffffff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=style.css.map */

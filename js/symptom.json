@@ -1,0 +1,28 @@
+{
+    "results" : {
+        "sehat" : {
+            "gejala" : ["tidak ada"],
+            "penyakit" : ["sehat"]
+        },
+        "putih" : {
+            "gejala" : ["mudah lelah", "pusing", "mengantuk"],
+            "penyakit" : ["dehidrasi", "jamur", "flu"]
+        },
+        "merah" : {
+            "gejala" : ["lemas", "demam" ],
+            "penyakit" : ["flu", "alergi", "kurang vitamin"]
+        },
+        "merah-menyala" : {
+            "gejala" : ["sesak nafas", "sakit pinggang", "mudah lelah"],
+            "penyakit" : ["jantung", "kardiovaskular"]
+        },
+        "kuning" : {
+            "gejala"    :  ["sakit perut", "sakit dada" ],
+            "penyakit"  : ["lambung", "hati"]
+        },
+        "ungu" : {
+            "gejala" : ["bengkak","mual", "sakit perut", "sakit pinggang"],
+            "penyakit" : ["ginjal", "paru", "jantung"]
+        }
+    }
+}
